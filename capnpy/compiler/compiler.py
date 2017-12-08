@@ -220,8 +220,6 @@ class DynamicCompiler(BaseCompiler):
             importname = '%s.capnp' % modname.replace('.', '/')
             return self._find_file(importname)
         elif importname is not None:
-            if not importname.startswith('/'):
-                raise ValueError("schema paths must be absolute: %s" % importname)
             return self._find_file(importname)
         else:
             return py.path.local(filename)
